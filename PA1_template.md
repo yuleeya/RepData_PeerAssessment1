@@ -33,24 +33,19 @@ summarized_date  <-
   survey %>%
   group_by(date) %>%
   summarize(steps = sum(steps)) 
-summarized_date
+head(summarized_date)
 ```
 
 ```
-## Source: local data frame [61 x 2]
+## Source: local data frame [6 x 2]
 ## 
-##          date steps
-## 1  2012-10-01    NA
-## 2  2012-10-02   126
-## 3  2012-10-03 11352
-## 4  2012-10-04 12116
-## 5  2012-10-05 13294
-## 6  2012-10-06 15420
-## 7  2012-10-07 11015
-## 8  2012-10-08    NA
-## 9  2012-10-09 12811
-## 10 2012-10-10  9900
-## ..        ...   ...
+##         date steps
+## 1 2012-10-01    NA
+## 2 2012-10-02   126
+## 3 2012-10-03 11352
+## 4 2012-10-04 12116
+## 5 2012-10-05 13294
+## 6 2012-10-06 15420
 ```
 
 Make a histogram of the total number of steps taken each day
@@ -97,24 +92,19 @@ summarized_int  <-
   survey %>%
   group_by(interval) %>%
   summarize(steps = mean(steps, na.rm=T)) 
-summarized_int
+head(summarized_int)
 ```
 
 ```
-## Source: local data frame [288 x 2]
+## Source: local data frame [6 x 2]
 ## 
-##    interval     steps
-## 1         0 1.7169811
-## 2         5 0.3396226
-## 3        10 0.1320755
-## 4        15 0.1509434
-## 5        20 0.0754717
-## 6        25 2.0943396
-## 7        30 0.5283019
-## 8        35 0.8679245
-## 9        40 0.0000000
-## 10       45 1.4716981
-## ..      ...       ...
+##   interval     steps
+## 1        0 1.7169811
+## 2        5 0.3396226
+## 3       10 0.1320755
+## 4       15 0.1509434
+## 5       20 0.0754717
+## 6       25 2.0943396
 ```
 
 Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
@@ -160,24 +150,19 @@ summarized_fill_date  <-
   survey_fill %>%
   group_by(date) %>%
   summarize(steps.x = sum(steps.x)) 
-summarized_fill_date
+head(summarized_fill_date)
 ```
 
 ```
-## Source: local data frame [61 x 2]
+## Source: local data frame [6 x 2]
 ## 
-##          date steps.x
-## 1  2012-10-01   10762
-## 2  2012-10-02     126
-## 3  2012-10-03   11352
-## 4  2012-10-04   12116
-## 5  2012-10-05   13294
-## 6  2012-10-06   15420
-## 7  2012-10-07   11015
-## 8  2012-10-08   10762
-## 9  2012-10-09   12811
-## 10 2012-10-10    9900
-## ..        ...     ...
+##         date steps.x
+## 1 2012-10-01   10762
+## 2 2012-10-02     126
+## 3 2012-10-03   11352
+## 4 2012-10-04   12116
+## 5 2012-10-05   13294
+## 6 2012-10-06   15420
 ```
 
 Make a histogram of the total number of steps taken each day
@@ -246,3 +231,10 @@ xyplot(steps.x ~ interval|wDay, data=survey_fill, type = "l",  xlab = "Interval"
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-15-1.png) 
+
+There is a difference in Subject activity between Weekday and weekend.
+During weekday Subject is active thought the day but most active around 500-900 interval which is roughly 5-9am.
+During the weekend overall activity is lower with peak around 1500-1700 interval which is 3-5pm.
+
+
+
